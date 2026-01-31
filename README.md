@@ -1,4 +1,4 @@
-#Projeto CRUD de Países — C# + SQLite
+#Projeto CRUD de Países : C# + SQLite
 
 Projeto desenvolvido como exercício prático para vaga de estágio em desenvolvimento, com foco em lógica, boas práticas, validação de dados e persistência em banco de dados.
 
