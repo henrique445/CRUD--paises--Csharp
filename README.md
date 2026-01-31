@@ -1,100 +1,69 @@
-##Projeto CRUD de Países : C# + SQLite
+CRUD de Países – C# Console Application
 
-Projeto desenvolvido como exercício prático para vaga de estágio em desenvolvimento, com foco em lógica, boas práticas, validação de dados e persistência em banco de dados.
+Este projeto consiste em uma aplicação Console em C# que implementa um CRUD completo de países, utilizando SQLite como banco de dados e seguindo boas práticas de organização de código.
 
-O sistema funciona via terminal (Console App) e permite cadastrar, consultar, editar, deletar e exportar dados de países.
+O objetivo principal é demonstrar fundamentos sólidos de desenvolvimento backend, com foco em lógica, estrutura e boas práticas, sem dependência de interfaces gráficas.
 
-#Objetivo do Projeto
+🛠️ Tecnologias Utilizadas
 
-Criar sistema simples para armazenar dados de paises(nome,população e área total) com banco de dados relacional e possibilidade de exportar tabela como aarquivo CSV.
+C#
 
-##Tecnologias Utilizadas
+.NET
 
--C# (.NET Console Application)
+SQLite
 
--SQLite (banco de dados local)
+Visual Studio Code
 
--Microsoft.Data.Sqlite
+Git / GitHub
 
--Visual Studio Code
+🧠 Decisões Técnicas
 
-🗂️ Estrutura do Projeto
-📁 Projeto
- ┣ 📄 Program.cs          → Menu, validações e fluxo principal
- ┣ 📄 Pais.cs             → Model (entidade País)
- ┣ 📄 PaisRepository.cs   → Repository (CRUD no banco)
- ┣ 📄 Database.cs         → Criação do banco e conexão SQLite
+Repository Pattern
+Separa a lógica de acesso ao banco de dados da lógica da aplicação, facilitando manutenção e testes.
 
-##Funcionalidades
-### CRUD completo
+Validações centralizadas
+Evitam repetição de código e tornam a aplicação mais organizada e segura.
 
--Cadastrar país (nome, população, área total)
+Exportação em CSV
+Utilizada como alternativa simples ao Excel (.xlsx), sem dependência de bibliotecas externas, permitindo abertura direta no Excel ou similares.
 
--Consultar países
+Aplicação Console
+Foco total em lógica, estrutura e fundamentos da linguagem, sem distrações de UI.
 
--Editar país existente (com validação de ID)
+📄 Funcionalidades
 
--Deletar país (com validação de ID)
+Cadastrar países
 
-### Validações 
+Listar países
 
--Uso de TryParse para evitar exceções
+Atualizar registros
 
--Validação de números positivos
+Remover países
 
--Validação de strings vazias ou nulas
+Exportar dados para arquivo CSV (gerado automaticamente na área de trabalho)
 
--Validação de existência do ID antes de editar/deletar
+▶️ Como Executar o Projeto
 
-### Exportação de dados
+Clone o repositório:
 
-Exportação dos países para arquivo CSV
+git clone https://github.com/henrique445/CRUD--paises--Csharp.git
 
-Arquivo gerado automaticamente na Área de Trabalho
-
-Abertura automática no Excel / LibreOffice
-
-### Exportação CSV
-
-O sistema permite exportar os dados consultados para um arquivo:
-
-paises.csv
-
-Formato compatível com Excel (separador ; para PT-BR):
-
-ID;NOME;POPULACAO;AREA_TOTAL
-1;BRASIL;214000000;8515767
-
-## Decisões Técnicas Importantes
-
-Repository Pattern: separa a lógica de acesso ao banco da lógica do programa
-
-Validações centralizadas: evitam repetição de código e facilitam manutenção
-
-CSV em vez de Excel (.xlsx): solução simples, sem dependências externas
-
-Console Application: foco em lógica e fundamentos, sem distrações de UI
-
-##Como Executar o Projeto
-
-Clone o repositório
-
-git clone henrique445/CRUD--paises--Csharp
 
 Acesse a pasta do projeto:
 
 cd CRUD--paises--Csharp
 
-Execute o projeto:
+
+Execute a aplicação:
 
 dotnet run
 
-O banco SQLite e a tabela são criados automaticamente na primeira execução.
+
+📌 O banco de dados SQLite e a tabela são criados automaticamente na primeira execução.
 
 👨‍💻 Autor
 
 Jair Henrique de Siqueira Mendes
-
 Estudante de Ciência da Computação e desenvolvimento de software.
 
-Projeto desenvolvido como parte da preparação para entrevista de estágio em desenvolvimento na empressa TORRECID.
+Projeto desenvolvido como parte da preparação para entrevista de estágio em desenvolvimento na empresa Torrecid.
