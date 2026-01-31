@@ -1,4 +1,4 @@
-#Projeto CRUD de Países : C# + SQLite
+##Projeto CRUD de Países : C# + SQLite
 
 Projeto desenvolvido como exercício prático para vaga de estágio em desenvolvimento, com foco em lógica, boas práticas, validação de dados e persistência em banco de dados.
 
@@ -8,7 +8,7 @@ O sistema funciona via terminal (Console App) e permite cadastrar, consultar, ed
 
 Criar sistema simples para armazenar dados de paises(nome,população e área total) com banco de dados relacional e possibilidade de exportar tabela como aarquivo CSV.
 
-#Tecnologias Utilizadas
+##Tecnologias Utilizadas
 
 -C# (.NET Console Application)
 
@@ -25,8 +25,8 @@ Criar sistema simples para armazenar dados de paises(nome,população e área to
  ┣ 📄 PaisRepository.cs   → Repository (CRUD no banco)
  ┣ 📄 Database.cs         → Criação do banco e conexão SQLite
 
-#Funcionalidades
-## CRUD completo
+##Funcionalidades
+### CRUD completo
 
 -Cadastrar país (nome, população, área total)
 
@@ -36,7 +36,7 @@ Criar sistema simples para armazenar dados de paises(nome,população e área to
 
 -Deletar país (com validação de ID)
 
-## Validações 
+### Validações 
 
 -Uso de TryParse para evitar exceções
 
@@ -46,7 +46,7 @@ Criar sistema simples para armazenar dados de paises(nome,população e área to
 
 -Validação de existência do ID antes de editar/deletar
 
-## Exportação de dados
+### Exportação de dados
 
 Exportação dos países para arquivo CSV
 
@@ -54,7 +54,7 @@ Arquivo gerado automaticamente na Área de Trabalho
 
 Abertura automática no Excel / LibreOffice
 
-## Exportação CSV
+### Exportação CSV
 
 O sistema permite exportar os dados consultados para um arquivo:
 
@@ -65,7 +65,7 @@ Formato compatível com Excel (separador ; para PT-BR):
 ID;NOME;POPULACAO;AREA_TOTAL
 1;BRASIL;214000000;8515767
 
-# Decisões Técnicas Importantes
+## Decisões Técnicas Importantes
 
 Repository Pattern: separa a lógica de acesso ao banco da lógica do programa
 
@@ -75,7 +75,7 @@ CSV em vez de Excel (.xlsx): solução simples, sem dependências externas
 
 Console Application: foco em lógica e fundamentos, sem distrações de UI
 
-#Como Executar o Projeto
+##Como Executar o Projeto
 
 Clone o repositório
 
