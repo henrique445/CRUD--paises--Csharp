@@ -79,11 +79,11 @@ Console Application: foco em lógica e fundamentos, sem distrações de UI
 
 Clone o repositório
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone henrique445/CRUD--paises--Csharp
 
 Acesse a pasta do projeto:
 
-cd [nome-do-repositorio]
+cd CRUD--paises--Csharp
 
 Execute o projeto:
 
