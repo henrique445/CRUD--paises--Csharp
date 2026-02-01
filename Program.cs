@@ -13,15 +13,24 @@ Database.CriarBancoETabela();
 
 static int ValidarID(string mensagem)
 {
-    int id;
-
     while (true)
     {
         Console.Write(mensagem);
+        string? entrada = Console.ReadLine();
 
-        if (!int.TryParse(Console.ReadLine(), out id) || id <= 0)
+        if (!int.TryParse(entrada, out int id))
         {
-            Console.WriteLine("Digite um número válido.");
+            Console.WriteLine("Digite um número inteiro válido.");
+            
+        }
+
+        // CANCELAR
+        if (id == 0)
+            return 0;
+
+        if (id < 0)
+        {
+            Console.WriteLine("Digite um número maior que zero.");
             continue;
         }
 
@@ -30,20 +39,19 @@ static int ValidarID(string mensagem)
         if (paises.Any(p => p.Id == id))
             return id;
 
-        Console.WriteLine("ID não encontrado. Tente novamente.");
+        Console.WriteLine("ID inexistente. Tente novamente.");
     }
 }
 
-static int ValidarInt(string mensagem)
+static double ValidarDouble(string mensagem)
 {
-    int valor;
+    double valor;
 
     while (true)
     {
         Console.Write(mensagem);
-        if (int.TryParse(Console.ReadLine(), out valor) && valor > 0)
-            return valor;
-
+        if (double.TryParse(Console.ReadLine(), out valor) && valor > 0.0)
+            return (double)valor;
         Console.WriteLine("Valor inválido. Tente novamente.");
     }
 }
@@ -63,6 +71,19 @@ static string ValidarString(string mensagem)
         Console.WriteLine("Valor inválido. Tente novamente.");
     }
 }
+static int ValidarOpcao(string mensagem)
+{
+    int valor;
+
+    while (true)
+    {
+        Console.Write(mensagem);
+        if (int.TryParse(Console.ReadLine(), out valor))
+            return valor;
+
+        Console.WriteLine("Opção inválida.");
+    }
+}
 
 //===== Operações =====
 //
@@ -71,9 +92,9 @@ static void Cadastrar()
 {
     string nome = ValidarString("Nome do país: ");
 
-    int populacao = ValidarInt("População: ");
+    double populacao = ValidarDouble("População: ");
 
-    int areaTotal = ValidarInt("Área total: ");
+    double areaTotal = ValidarDouble("Área total: ");
     
     PaisRepository.Inserir(new Pais
     {
@@ -106,7 +127,7 @@ static void Consultar()
     Console.WriteLine("1 - Não");
     Console.WriteLine("2 - Exportar CSV (Excel)");
 
-    int opcao = ValidarInt("Opção: ");
+    int opcao = ValidarOpcao("Opção: ");
     switch (opcao)
     {
         case 1:
@@ -125,6 +146,7 @@ static void Consultar()
 static void Editar()
 {
     Console.WriteLine("\n============= EDITAR PAÍS =============");
+    Console.WriteLine("\n============= Cancelar : 0 =============");
 
     if (PaisRepository.Listar().Count == 0)
     {
@@ -133,12 +155,18 @@ static void Editar()
     }
 
     int id = ValidarID("ID do país a ser editado: ");
-    
+
+    if (id == 0)
+    {
+    Console.WriteLine("Operação cancelada.");
+    return;
+    }
+   
     string nome = ValidarString("Novo nome: ");
   
-    int populacao = ValidarInt("Nova população: ");
+    double populacao = ValidarDouble("Nova população: ");
 
-    int area = ValidarInt("Nova área total: ");
+    double area = ValidarDouble("Nova área total: ");
 
     var pais = new Pais
     {
@@ -156,6 +184,8 @@ static void Editar()
 static void Deletar()
 {
     Console.WriteLine("\n============= DELETAR PAÍS =============");
+    Console.WriteLine("\n============= Cancelar : 0 =============");
+    
 
     if (PaisRepository.Listar().Count == 0)
     {
@@ -165,10 +195,17 @@ static void Deletar()
 
     int id = ValidarID("Digite o ID do país: ");
 
+    if (id == 0)
+    {
+    Console.WriteLine("Operação cancelada.");
+    return;
+    }
+
+    
     PaisRepository.Deletar(id);
     Console.WriteLine("País deletado!");
 }
-//exportador CSV
+//========== Exportador CSV =============
 
 static void ExportarCsv(List<Pais> paises)
 {
@@ -212,23 +249,24 @@ while (true)
     Console.WriteLine("================ Sair : 0 ================ ");
 
     Console.Write("Escolha uma opção: ");
-    string opcao = Console.ReadLine()!;
+    
+    int opcao = ValidarOpcao("Opção: ");
 
     switch (opcao)
     {
-        case "1":
+        case 1:
             Cadastrar();
             break;
-        case "2":
+        case 2:
             Consultar();
             break;
-        case "3":
+        case 3:
             Editar();
             break;
-        case "4":
+        case 4:
             Deletar();
             break;
-        case "0":
+        case 0:
             Console.WriteLine("Saindo...");
             return;
         default:

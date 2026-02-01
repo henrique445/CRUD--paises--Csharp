@@ -15,11 +15,11 @@ public static class Database
         conn.Open();
 
         string sql = @"
-    CREATE TABLE IF NOT EXISTS paises (
+        CREATE TABLE IF NOT EXISTS paises (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
-        populacao INTEGER NOT NULL,
-        area INTEGER NOT NULL
+        populacao REAL NOT NULL,
+        area REAL NOT NULL
     );
 ";
 

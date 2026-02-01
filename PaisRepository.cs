@@ -17,15 +17,14 @@ public static class PaisRepository
 
         cmd.ExecuteNonQuery();
     }
-
-    public static List<Pais> Listar()
+public static List<Pais> Listar()
 {
     var lista = new List<Pais>();
 
     using var conn = Database.GetConnection();
     conn.Open();
 
-    string sql = "SELECT * FROM paises";
+    string sql = "SELECT id, nome, populacao, area FROM paises";
 
     using var cmd = new SqliteCommand(sql, conn);
     using var reader = cmd.ExecuteReader();
@@ -36,13 +35,13 @@ public static class PaisRepository
         {
             Id = reader.GetInt32(0),
             Nome = reader.GetString(1),
-            Populacao = reader.GetInt32(2),
-            AreaTotal = reader.GetInt32(3)
+            Populacao = reader.GetDouble(2),
+            AreaTotal = reader.GetDouble(3)
         });
     }
 
     return lista;
-} 
+}
 
     public static void Deletar(int id)
     {
