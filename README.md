@@ -42,12 +42,11 @@ Remover países
 
 Exportar dados para arquivo CSV (gerado automaticamente na área de trabalho)
 
-▶️ Como Executar o Projeto
+▶️ Como Executar o Projeto(Terminal GitHub)
 
 Clone o repositório:
 
 git clone https://github.com/henrique445/CRUD--paises--Csharp.git
-
 
 Acesse a pasta do projeto:
 
@@ -58,6 +57,40 @@ Execute a aplicação:
 
 dotnet run
 
+-Siga as instruções exibidas no menu para utilizar o sistema.
+
+▶️ Opção 2 – Executar usando o GitHub Desktop
+
+No GitHub Desktop, clique em:
+
+-File → Clone Repository → URL
+
+-Cole o URL do repositório:
+
+https://github.com/henrique445/CRUD--paises--Csharp.git
+
+-Mantenha o caminho padrão sugerido pelo GitHub Desktop e clique em Clone
+
+-Após o repositório ser clonado:
+
+-Clique em Repository → Show in Explorer
+
+(ou use o atalho Ctrl + Shift + F)
+
+-No Windows Explorer, dentro da pasta do projeto:
+
+-Clique com o botão direito
+
+-Selecione Abrir no Terminal ou Abrir no PowerShell
+
+-Execute os comandos abaixo, na ordem:
+
+dotnet restore
+dotnet build
+dotnet run
+
+-O programa será executado no terminal.
+-Siga as instruções exibidas no menu para utilizar o sistema.
 
 📌 O banco de dados SQLite e a tabela são criados automaticamente na primeira execução.
 
